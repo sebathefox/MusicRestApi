@@ -2,6 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
+const db = require("./../database");
+
 //TODO: Implement user validating middleware!!
 
 // Get a specific song
@@ -22,7 +24,10 @@ router.get("/:id", function (req, res) {
 
 // Get all songs available
 router.get("/", function (req, res) {
-
+    db.query("SELECT * FROM songs", function (err, result, fields) {
+        if(err) throw err;
+        res.send(result);
+    });
 });
 
 // Upload a new song
@@ -34,3 +39,5 @@ router.post("/upload", function (req, res) {
 router.post("/delete", function (req, res) {
 
 });
+
+module.exports = router;
