@@ -7,7 +7,7 @@ const db = require("./../database");
 //TODO: Implement user validating middleware!!
 
 // Get a specific song
-router.get("/:id", function (req, res) {
+router.get("/stream/:id", function (req, res) {
     // let id = req.params.id;
     // let file = "./music/" + id + ".mp3";
     //
@@ -23,10 +23,11 @@ router.get("/:id", function (req, res) {
 });
 
 // Get all songs available
-router.get("/", function (req, res) {
+router.get("/all", function (req, res) {
+    console.log("p1");
     db.query("SELECT * FROM songs", function (err, result, fields) {
         if(err) throw err;
-        res.send(result);
+        res.status(200).send(result);
     });
 });
 

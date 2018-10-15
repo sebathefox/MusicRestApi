@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Returns list of songs
 router.get('/', function(req, res, next) {
-  //TODO: Implement database file
+  res.send({ message: "KEK" });
 });
 
 router.get("/search/:keyword", function (req, res) {
