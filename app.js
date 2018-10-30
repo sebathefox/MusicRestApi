@@ -23,7 +23,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // Include API Specific routes
-app.use("/api/music", musicRouter);
+app.use("/music", musicRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
